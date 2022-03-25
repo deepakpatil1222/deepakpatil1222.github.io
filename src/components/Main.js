@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import InputTaskComp from "./InputTaskComp";
 import ToDoListComp from "./ToDoListComp";
+import ReactPaginate from "react-paginate";
+import { confirmAlert } from "react-confirm-alert";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 let id = 0;
 const Main = () => {
     
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState([]);    
+
 
     const createTask = (task) => {
         if(task.trim() == ""){
@@ -17,14 +21,27 @@ const Main = () => {
     }    
     
     const onTaskDelete = (taskId) => {
-        setTasks([...tasks].filter(task => task.id !== taskId));
+        confirmAlert({
+            title : "Confirm to Delete",
+            message : "Are you sure to do this.",
+            buttons: [
+                {
+                  label: 'Yes',
+                  onClick: () => setTasks([...tasks].filter(task => task.id !== taskId))
+                },
+                {
+                  label: 'No',
+                  onClick: ""
+                }
+              ]
+        });
     }
     const onTaskFavoriteClick = taskId => {
         const newTasks = [...tasks].map(task => {
             return task.id === taskId ? {...task, isFavorite : !task.isFavorite} : task;
              
         });
-        setTasks(newTasks);
+        setTasks(newTasks.sort((a, b) => Number(b.isFavorite) - Number(a.isFavorite)));
     }
 
     return (

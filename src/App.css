@@ -100,3 +100,30 @@ h1 {
   margin-right: 5px;
   color: #fff;
 }
+
+.paginationButtons{
+  margin-top: 30px;
+  margin-left: 50px;
+  width: 80%;  
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.paginationButtons a {
+  padding: 10px;
+  margin: 8px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  color: blue;
+  cursor: pointer;
+}
+
+.paginationButtons a:hover {
+  color: white;
+  background-color: blue;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: blue;
+}

@@ -28,10 +28,14 @@ const Main = () => {
     }
 
     return (
-        <div className="todo-app">            
-            <InputTaskComp createTask={createTask}/>
-            <ToDoListComp tasks={tasks} onTaskDelete={onTaskDelete} onTaskFavoriteClick={onTaskFavoriteClick}/>
-        </div>
+        <>
+            <h1>Todo list</h1>
+            <div>            
+                <InputTaskComp createTask={createTask}/>
+                <ToDoListComp tasks={tasks} onTaskDelete={onTaskDelete} onTaskFavoriteClick={onTaskFavoriteClick}/>
+            </div>
+        </>
+        
     );
 }
 

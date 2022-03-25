@@ -5,21 +5,21 @@ import {AiOutlineStar, AiFillStar} from "react-icons/ai";
 const ToDoListComp = ({tasks, onTaskDelete, onTaskFavoriteClick}) => {
     
     return (               
-        <div>
-            {tasks.map(task => (
-                <div key={task.id}>
+       
+            tasks.map(task => (
+                <div key={task.id} className="todo-row">
                     <div >
                         {task.task}
                     </div>
                     <div className="icons">                        
                         {task.isFavorite ? <AiFillStar onClick={() => onTaskFavoriteClick(task.id)} /> : <AiOutlineStar onClick={() => onTaskFavoriteClick(task.id)}/>}                
                         
-                        <RiDeleteBinLine onClick={() => onTaskDelete(task.id)} />
+                        <RiDeleteBinLine className='delete-icon' onClick={() => onTaskDelete(task.id)} />
                     </div>
                 </div>
 
-            ))}
-        </div>
+            ))
+      
     );
 };
 

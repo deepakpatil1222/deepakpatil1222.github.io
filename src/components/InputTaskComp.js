@@ -12,12 +12,13 @@ const InputTaskComp = ({onFormSubmit, createTask}) => {
         
     
     return (
-        <form className="todoform" onSubmit={(e) => handleSubmit(e)}>
+        <form className="todo-form" onSubmit={(e) => handleSubmit(e)} className='todo-form'>
             <input type="text" 
             onChange={(e) => setInputText(e.target.value)} 
             value={inputText}
             placeholder = "Enter your todo task" 
-            name = "todo-task" />
+            name = "todo-task"
+            className='todo-input' />
         </form>
     );
 }
